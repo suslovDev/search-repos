@@ -1,0 +1,136 @@
+$red: #d64935;
+$blue: #83cbf2;
+
+html {
+  background-color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+body {
+  background-color: #f7f7f7;
+  color: #1e1e1e;
+  max-width: 1170px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 30px;
+  box-shadow: inset 0px 0px 6px $blue;
+}
+a {
+  all: unset;
+  cursor: pointer;
+}
+h2 {
+  margin-bottom: 5rem;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 400;
+  text-shadow: $blue 0 0 10px;
+  color: $red;
+}
+.warn {
+  position: absolute;
+  left: 0;
+  bottom: 105%;
+  border-radius: 6px;
+  padding: 1rem;
+  background-color: orange;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 30;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 0.5em solid transparent;
+    border-top-color: orange;
+  }
+}
+.search {
+  display: flex;
+  position: relative;
+  width: 100%;
+  justify-content: center;
+  max-width: 700px;
+  margin: 2rem auto 5rem;
+  .search__input {
+    appearance: none;
+    outline: none;
+    background: white;
+    border: none;
+    box-shadow: 2px 3px 2px $blue;
+    border-radius: 30px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    width: 100%;
+    z-index: 1;
+    font-family: inherit;
+    padding: 0.8rem;
+    position: relative;
+  }
+  .search__btn {
+    background-color: $red;
+    content: "";
+    position: absolute;
+    width: 70px;
+    height: 100%;
+    right: 0;
+    z-index: 10;
+    border: none;
+    border-radius: 0 30px 30px 0;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      width: 100px;
+      opacity: 0.9;
+    }
+    img {
+      top: calc(50% - 12px);
+      right: 24px;
+      position: absolute;
+    }
+  }
+}
+
+.repos {
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 3rem;
+}
+
+.repo-card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem;
+  width: 50%;
+  justify-content: flex-start;
+  border: 1px solid $blue;
+  border-radius: 6px 24px;
+  box-shadow: inset 1px 2px 1px $blue;
+  position: relative;
+  .repo-card__title {
+    text-align: center;
+    border-bottom: 1px dotted $red;
+    cursor: pointer;
+    padding-bottom: 10px;
+  }
+  .repo-card__avatar {
+    position: absolute;
+    left: -50px;
+    top: -50px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+  }
+  .repo-card__title {
+    &:hover {
+      color: gray;
+      border-color: $blue;
+    }
+  }
+}

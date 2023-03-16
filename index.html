@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search repos</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+    <script defer src="./js/main.js"></script>
+  </head>
+  <body>
+    <form id="form">
+      <div class="search" id="search">
+        <input
+          class="search__input"
+          type="text"
+          id="input"
+          placeholder="Название репозитория..."
+        />
+        <button class="search__btn" type="submit">
+          <img src="./img/search-icon.png" alt="" />
+        </button>
+      </div>
+    </form>
+
+    <h2 id="heading">Ниже будут результаты поиска</h2>
+    <div class="repos" id="repos"></div>
+  </body>
+</html>

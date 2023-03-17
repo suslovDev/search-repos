@@ -32,18 +32,6 @@ const showWarning = () => {
   setTimeout(() => warn.remove(), 2000);
 };
 
-/*     let job = fetch(`https://api.github.com/users/${name}`).then(
-      successResponse => {
-        if (successResponse.status != 200) {
-          return null;
-        } else {
-          return successResponse.json();
-        }
-      },
-      failResponse => {
-        return null;
-      } */
-
 const searchRepos = async () => {
   let queryString = `https://api.github.com/search/repositories?q=${input.value}in:name&per_page=10`;
 

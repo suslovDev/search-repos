@@ -32,25 +32,42 @@ const showWarning = () => {
   setTimeout(() => warn.remove(), 2000);
 };
 
+/*     let job = fetch(`https://api.github.com/users/${name}`).then(
+      successResponse => {
+        if (successResponse.status != 200) {
+          return null;
+        } else {
+          return successResponse.json();
+        }
+      },
+      failResponse => {
+        return null;
+      } */
+
 const searchRepos = async () => {
   let queryString = `https://api.github.com/search/repositories?q=${input.value}in:name&per_page=10`;
-  let response = await fetch(queryString);
-  let result = await response.json();
-  let foundRepos = result.items;
-  let hasRepos = !!foundRepos.length;
-  let headingMessage = hasRepos
-    ? "Список найденных репозиториев:"
-    : "Ничего не найдено";
-  setHeadingMessage(headingMessage);
-  foundRepos.forEach((repo) => {
-    addRepoCard(
-      repo.name,
-      repo.language,
-      repo.html_url,
-      repo.owner.login,
-      repo.owner.avatar_url
-    );
-  });
+
+  try {
+    let response = await fetch(queryString);
+    let result = await response.json();
+    let foundRepos = result.items;
+    let hasRepos = !!foundRepos.length;
+    let headingMessage = hasRepos
+      ? "Список найденных репозиториев:"
+      : "Ничего не найдено";
+    setHeadingMessage(headingMessage);
+    foundRepos.forEach((repo) => {
+      addRepoCard(
+        repo.name,
+        repo.language,
+        repo.html_url,
+        repo.owner.login,
+        repo.owner.avatar_url
+      );
+    });
+  } catch {
+    console.log("Что-то пошло не так(");
+  }
 };
 
 const handleSubmit = (e) => {
